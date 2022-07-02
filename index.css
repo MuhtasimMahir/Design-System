@@ -508,7 +508,6 @@ body {
 
 .grid-container p:not([class]) {
     max-width: 50ch;
-    
 }
 
 .numbered-title {
@@ -529,6 +528,7 @@ body {
 .grid-container--destination > picture {
     grid-area: image;
     max-width: 60%;
+    align-self: start;
 }
 
 .grid-container--destination > .tab-list {
@@ -551,6 +551,7 @@ body {
 }
 
 /* crew layout */
+
 .grid-container--crew {
     --flow-space: 2rem;
     grid-template-areas: 
@@ -575,7 +576,7 @@ body {
 }
 
 .crew-details h2 {
-    color:hsl( var(--clr-white) / .5)
+    color: hsl( var(--clr-white) / .5);
 }
 
 @media (min-width: 35em) {
@@ -588,7 +589,7 @@ body {
         flex-direction: row;
         justify-content: space-evenly;
     }
-
+    
     .grid-container--crew {
         padding-bottom: 0;
         grid-template-areas: 
@@ -597,8 +598,8 @@ body {
             'tabs'
             'image';
     }
-
-
+    
+    
 }
 
 @media (min-width: 45em) {
@@ -630,34 +631,28 @@ body {
             '. image content .';
     }
     
-    .grid-container--destination > picture,
-    .grid-container--crew > picture {
+    .grid-container--destination > picture {
         max-width: 90%;
     }
-
+     
     .destination-meta {
         --gap: min(6vw, 6rem);
         justify-content: start;
     }
-
+    
     .grid-container--crew {
-        --flow-space: 2rem;
+        grid-template-columns: minmax(1rem, 1fr) minmax(0, 37rem) minmax(0, 23rem) minmax(1rem, 1fr);
+        justify-items: start;
         grid-template-areas: 
             '. title title .'
             '. content image .'
             '. tabs image .';
     }
-
-
-    .grid-container--crew > .dot-indicators {
-        justify-self: start;
+    
+    .grid-container--crew > picture {
+        grid-column: span 2;
+        align-self: end; 
+        max-width: 90%;
     }
 
-    /* .grid-container--crew > img {
-        align-self: end; 
-    } */
-}
-
-[role="tab"]:focus {
-    color: limegreen;
 }
